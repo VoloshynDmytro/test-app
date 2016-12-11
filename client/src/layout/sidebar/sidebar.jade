@@ -1,0 +1,9 @@
+.sidebar__header
+  a(ui-sref='dashboard')
+
+nav.nav
+  a.nav__item(
+    ui-sref='{{r.name}}'
+    ng-class='$ctrl.isCurrent(r)'
+    ng-repeat='r in $ctrl.navRoutes'
+    ng-bind-html='r.settings.content')

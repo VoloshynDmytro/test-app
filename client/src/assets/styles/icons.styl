@@ -1,0 +1,80 @@
+@font-face
+  font-family: "test-app";
+  src: url('../fonts/test-app.eot');
+  src: url('../fonts/test-app.eot?#iefix') format('eot'),
+    url('../fonts/test-app.woff') format('woff'),
+    url('../fonts/test-app.ttf') format('truetype')
+  font-weight: normal
+  font-style: normal
+
+[data-icon]:before
+  font-family: "test-app" !important;
+  content: attr(data-icon);
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+[class^="icon-"]:before,
+[class*=" icon-"]:before
+  font-family: "test-app" !important
+  font-style: normal !important
+  font-weight: normal !important
+  font-variant: normal !important
+  text-transform: none !important
+  text-decoration: none
+  speak: none
+  line-height: 1
+  -webkit-font-smoothing: antialiased
+  -moz-osx-font-smoothing: grayscale
+
+
+
+.icon-check_empty:before
+  content: "\E001"
+
+.icon-checked:before
+  content: "\E002"
+
+.icon-chevron:before
+  content: "\E003"
+
+.icon-close-circle-outline:before
+  content: "\E004"
+
+.icon-close-circle:before
+  content: "\E005"
+
+.icon-info:before
+  content: "\E006"
+
+.icon-photos:before
+  content: "\E007"
+
+.icon-plus-circle:before
+  content: "\E008"
+
+.icon-search:before
+  content: "\E009"
+
+.icon-settings:before
+  content: "\E00A"
+
+.icon-table-sort:before
+  content: "\E00B"
+
+.icon-table-sorted-down:before
+  content: "\E00C"
+
+.icon-table-sorted-up:before
+  content: "\E00D"
+
+.icon-user:before
+  content: "\E00E"
+
+.icon-users:before
+  content: "\E00F"

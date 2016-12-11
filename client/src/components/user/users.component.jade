@@ -1,0 +1,49 @@
+.table-wrapper
+  .table__header
+    h2.table__title Users
+    .table__controls
+      .form__element-holder.with_icon
+        input.form-control(
+          placeholder='Search',
+          type='search',
+          ng-model='search',
+          ng-model-options='{debounce: 500}')
+        i.icon-search
+
+  table.table
+    thead.table_header
+      tr
+        th
+        th(ng-repeat="column in ::$ctrl.columns" ng-click="column | setSort:$ctrl.sorting")
+          span.sortable(ng-class='{sort: $ctrl.sorting.order == column}')
+            | {{column | titleCase}}
+            i(class='icon-table-sort' ng-class="column | sortClass:$ctrl.sorting")
+    tbody
+      tr.table-row(dir-paginate="user in $ctrl.users | orderBy:$ctrl.sorting.order:$ctrl.sorting.descending " +
+        "| filter: $ctrl.filter" +
+        "| shallow:search:['name', 'username', 'email', 'phone'] " +
+        "| itemsPerPage: $ctrl.pagination.size"
+        pagination-id="users",
+        ng-class='{selected: $ctrl.isSelected(user)}',
+        ng-click="$ctrl.selectUser(user)")
+        td
+          .users-portrait
+            i.icon-user
+        td {{user.name}}
+        td {{user.username}}
+        td {{user.email}}
+        td {{user.phone}}
+
+      tr
+        td(colspan="5")
+          ui-view(ng-if='$ctrl.selectedUser')
+
+
+  .table__footer
+    .table__filter
+      span.table__filter-text Show
+      selector(
+        options='$ctrl.pagination.sizeChoices'
+        selected='$ctrl.pagination.size'
+        on-select='$ctrl.chooseSize($selected)')
+    dir-pagination-controls(boundary-links="false" max-size="6" pagination-id="users")

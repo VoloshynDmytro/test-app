@@ -1,0 +1,89 @@
+.form
+  .errors
+    color: #ff0039
+    font-weight: 600
+
+.form__item
+  margin-bottom: 15px
+  text-align: left
+  &:last-child
+    margin-bottom 0
+  .action_buttons
+    text-align: right
+
+.form__item + .form_item:last-child
+  margin-bottom: 0
+
+.form__label
+  font-size: 13px
+  color: #2f313d
+  display: inline-block
+  margin-bottom: 5px
+  font-weight: 600
+
+.form-control,
+.select,
+.textarea
+  padding: 5px 15px
+  color: #49545c
+  border: 1px solid #d7dbe3
+  outline: 0
+  font-size: 13px
+  line-height: 18px
+  box-sizing: border-box
+  display: block
+  width: 100%
+  border-radius: 3px
+  position: relative
+  box-shadow: inset 0 1px 3px 0 rgba(0, 0, 0, 0.11)
+  appearance: none
+  background-color: #fff
+  &::placeholder
+    color: #49545c
+
+.form-control[type="number"]
+  -moz-appearance: textfield
+.form-control[type="search"]
+  box-sizing: border-box
+
+.select,
+.form-control
+  height 36px
+  &.small
+    padding: 1px 10px
+    height: 22px
+  &.middle
+    height: 28px
+
+.textarea
+  min-height: 56px
+  resize: none
+  color: #2f313d
+  padding: 15px 15px
+
+.select
+  background-image: url("/images/select_chevron.png")
+  background-repeat: no-repeat
+  background-position: right 15px bottom 15px
+  padding-right: 30px
+  &.small
+    background-position: right 10px bottom 7px
+  &.middle
+    background-position: right 10px bottom 10px
+    padding-right: 20px
+
+.form__element-holder
+  position: relative
+  display: block
+  text-align: left
+  &.with_icon
+    .form-control
+      padding-left: 25px
+    i
+      position: absolute
+      font-size: 16px
+      line-height: 14px
+      height: 14px
+      left: 10px
+      top: 50%
+      margin-top: -8px

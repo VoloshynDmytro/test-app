@@ -1,0 +1,14 @@
+.list-wrapper.list-mode
+  .list-header
+    h3 ALBUMS
+    .form__element-holder.with_icon
+      input.form-control(
+      placeholder='Search Albums',
+      type='search',
+      ng-model='search',
+      ng-model-options='{debounce: 300}')
+      i.icon-search
+  .list-container
+    .item(ng-repeat="album in $ctrl.albums | shallow:search:['title']" )
+      i.icon-plus-circle
+      span {{ album.title }}

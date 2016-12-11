@@ -1,0 +1,59 @@
+.button
+    text-align: center
+    font-size: 12px
+    font-weight: bold
+    display: inline-block
+    height: 28px
+    padding: 5px 20px
+    line-height: 18px
+    border-radius: 2px
+    text-decoration: none
+    box-sizing: border-box
+    background: #fff
+    border: 1px solid #d4d4d4
+    white-space: nowrap
+    vertical-align: middle
+    cursor: pointer
+    outline: 0
+    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12)
+    user-select: none
+    text-transform: uppercase
+    color: $text
+    &.disabled
+      opacity: 0.5
+    &:hover
+        box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.20)
+    + .button:not(.button_block)
+      margin-left: 15px
+    + report-action-buttons
+        margin-left: 15px
+    &_large
+        text-transform: uppercase
+        line-height: 22px
+        height: 46px
+        font-size 18px
+        border-radius 23px
+    &_middle
+        height: 36px
+        border-radius: 18px
+    &_small
+        padding: 7px 14px
+        font-weight: normal
+    &_block
+        display: block
+        width: 100%
+    &_primary
+        background: $green
+        color: #fff
+        border-color: transparent
+    &_warning
+        background: $yellow
+        color: #fff
+        border-color: transparent
+    &_danger
+        background: $red
+        color: #fff
+        border-color: transparent
+    i
+      padding-right: 3px
+      vertical-align: middle

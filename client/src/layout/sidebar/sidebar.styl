@@ -1,0 +1,35 @@
+@require './../../assets/styles/variables.styl'
+.nav
+  padding 30px 0
+  &__item
+    padding 15px 20px 15px 55px
+    display block
+    color: $light_gray
+    text-decoration: none
+    font-size: 14px
+    text-transform: uppercase
+    line-height: 14px
+    letter-spacing: 0.150em
+    position relative
+    i
+      font-size 24px
+      height 26px
+      top: 50%
+      margin-top: -13px
+      position absolute
+      left: 20px
+    &:hover,
+    &.active
+      background: #2d2e2f
+      color: #fff
+      i
+        color: #fff
+
+.sidebar
+  background: $dark
+  width: 220px
+  flex-grow: 0
+  &__header
+    height: 75px
+    background: $current
+    position: relative

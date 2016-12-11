@@ -1,0 +1,11 @@
+ul.pagination(ng-if='1 < pages.length || !autoHide')
+  li(ng-if='boundaryLinks')
+    a.pagination__item(href='', ng-class='{ disabled : pagination.current == 1 }', ng-click='setCurrent(1)') «
+  li(ng-if='directionLinks')
+    a.pagination__item(href='', ng-click='setCurrent(pagination.current - 1)', ng-class='{ disabled : pagination.current == 1 }') ‹
+  li(ng-repeat='pageNumber in pages track by tracker(pageNumber, $index)')
+    a.pagination__item(href='', ng-class="{ active : pagination.current == pageNumber, disabled : pageNumber == '...' }", ng-click='setCurrent(pageNumber)') {{ pageNumber }}
+  li(ng-if='directionLinks')
+    a.pagination__item(href='', ng-class='{ disabled : pagination.current == pagination.last }', ng-click='setCurrent(pagination.current + 1)') ›
+  li(ng-if='boundaryLinks')
+    a.pagination__item(href='', ng-class='{ disabled : pagination.current == pagination.last }', ng-click='setCurrent(pagination.last)') »

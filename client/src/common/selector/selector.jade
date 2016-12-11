@@ -1,0 +1,5 @@
+.form__element-holder
+  select.select.middle(
+    ng-model='$ctrl.selected'
+    ng-change='$ctrl.onSelect({$selected: $ctrl.selected})'
+    ng-options='o as o for o in $ctrl.options')

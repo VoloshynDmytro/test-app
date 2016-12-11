@@ -1,0 +1,41 @@
+@require './../../assets/styles/variables.styl'
+
+.header
+    height: 75px
+    padding: 20px 20px 20px 65px
+    box-sizing: border-box
+    background: #fff
+    position: relative
+    &__row
+        display: flex
+        justify-content: space-between
+        align-items: center
+    &__title
+        font-size: 24px
+        color: #2f313d
+        margin: 0
+        line-height 35px
+
+    .user_name
+        border-right: 1px solid #e0e0e0
+        display: inline-block
+        padding: 0 15px 0 36px
+        position: relative
+        text-align: center
+        color: #2f313d
+        font-size: 14px
+        i
+            border-radius: 50%
+            border: 2px solid #999c9f
+            position: absolute
+            box-sizing: border-box
+            height: 24px
+            width: 24px
+            left: 0
+            top: -4px
+            font-size: 14px
+            color: #999c9f
+            &:before
+                position absolute
+                left: 3px
+                top: 2px

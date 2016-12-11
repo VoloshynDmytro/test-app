@@ -1,0 +1,5 @@
+.switcher-row(ng-click='switch()')
+  span.switcher-text {{label}}
+  .switcher(ng-class='{on: model, off: !model}')
+    .switcher__line
+    .switcher__circle
