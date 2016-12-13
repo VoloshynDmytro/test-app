@@ -1,0 +1,8 @@
+.list-wrapper.photos
+  .list-header
+    h3 PHOTOS IN ALBUM (POSTS)
+
+  .list-container
+    .item(ng-repeat="photo in $ctrl.photos | shallow:search:['title']",
+      ng-style="{'background-image':'url(' + photo.thumbnailUrl + ')' }")
+      span {{ photo.title }}

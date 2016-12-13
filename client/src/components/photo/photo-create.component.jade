@@ -1,0 +1,22 @@
+h2.modal__title
+  | Post to an Album (Create Photo)
+
+form.form(name='photoForm', novalidate)
+  .form__item
+    label.form__label Title
+    .form__element-holder
+      input.form-control(
+        placeholder='Please enter photo title...',
+        type='text',
+        name='title',
+        ng-model='vm.photo.title',
+        ng-required="true")
+      div.errors(ng-messages='photoForm.title.$error', ng-if="photoForm|hasErrors:'title'")
+        div(ng-messages-include='error-messages')
+
+  button.button.button_primary.button_large.button_block(
+    type='button',
+    ng-class='{disabled: photoForm.$invalid}',
+    ng-click="vm.submitPhoto(vm.photo, photoForm)",
+    ng-disabled="photoForm.$invalid" )
+      | Create Photo (Sent to Album)

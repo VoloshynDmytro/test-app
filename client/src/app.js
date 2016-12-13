@@ -1,5 +1,6 @@
 import angular from 'angular';
 import uiRouter from 'angular-ui-router';
+import ngHighcharts from 'highcharts-ng';
 import lodash from 'lodash';
 import Core from './core/core.module';
 import Layout from './layout/layout';
@@ -11,6 +12,7 @@ import './assets/styles/app.styl';
 
 angular.module('app', [
     uiRouter,
+    ngHighcharts,
     Core,
     Layout,
     Common,

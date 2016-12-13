@@ -13,7 +13,7 @@ const albumModule = angular.module('album', [
         url: '/{userId}/albums',
         component: 'albums',
         resolve: {
-          albums: loadAlbums
+          data: loadAlbums
         }
       });
   })
@@ -24,8 +24,13 @@ const albumModule = angular.module('album', [
 
 function loadAlbums(AlbumService, $stateParams) {
   "ngInject";
-  return AlbumService.load($stateParams.userId).then((data) => {
-    return data.albums
+  let data = {};
+  return AlbumService.load($stateParams.userId).then((responseData) => {
+    data.albums = responseData.albums;
+    if ( $stateParams.albumId )
+      data.selectedAlbum = data.albums.find(album => album.id == $stateParams.albumId);
+
+    return data
   });
 }
 

@@ -1,14 +1,27 @@
 .list-wrapper.list-mode
   .list-header
-    h3 ALBUMS
-    .form__element-holder.with_icon
-      input.form-control(
-      placeholder='Search Albums',
-      type='search',
-      ng-model='search',
-      ng-model-options='{debounce: 300}')
-      i.icon-search
+    .col-xs-12
+      .row
+        .col-xs-4
+          h3 ALBUMS
+        .col-xs-4.button_wrapper
+          a.button.button_warning(
+            ng-if='$ctrl.selectedAlbum',
+            ng-click='$ctrl.createPhoto($ctrl.selectedAlbum)')
+            | POST TO ALBUM
+        .col-xs-4
+          .form__element-holder.with_icon
+            input.form-control(
+            placeholder='Search Albums',
+            type='search',
+            ng-model='search',
+            ng-model-options='{debounce: 300}')
+            i.icon-search
+
   .list-container
-    .item(ng-repeat="album in $ctrl.albums | shallow:search:['title']" )
+    .item(ng-repeat="album in $ctrl.albums | shallow:search:['title']",
+      ng-click="$ctrl.selectAlbum(album)")
       i.icon-plus-circle
       span {{ album.title }}
+
+ui-view(ng-if='$ctrl.selectedAlbum')

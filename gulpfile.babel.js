@@ -93,7 +93,7 @@ gulp.task('nodemon', ['copy:server', 'compile:server'], () =>
     plugins.nodemon({
       script: path.join('dist', 'server', 'index.js'),
       ext: 'js',
-      ignore: ['node_modules/**/*.js', 'dist/**/*.js'],
+      watch: ['server'],
       tasks: ['copy:server', 'compile:server']
     })
 );

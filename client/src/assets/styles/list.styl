@@ -2,15 +2,15 @@
   padding: 5px 50px 5px 50px;
 
 .list-wrapper
+  &.photos
+    padding: 40px
   .list-header
     padding: 0 50px
-    display: flex
-    h3
-      flex: 1
-    .form__element-holder
-      i
-        top: 40%
-      flex: 1
+    .form__element-holder i
+      top: 40%
+    .button_wrapper
+      text-align: end
+      margin-top: 5px
 
   .item
     float: left;
@@ -19,6 +19,7 @@
     padding: 10px
     margin:0 10px 10px 0;
     background-color: #edeef0;
+    background-size: cover;
     -webkit-transition:all 1.0s ease;
     -moz-transition:all 1.0s ease;
     transition:all 1.0s ease;

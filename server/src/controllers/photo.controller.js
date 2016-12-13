@@ -13,7 +13,6 @@ function create(req, res, next) {
     json: data
   }, (error, response, photo) => {
     if (error) next(error);
-    console.log(response.statusCode);
 
     if (response.statusCode == 201)
       res.json({photo: photo});
@@ -26,8 +25,10 @@ function list(req, res, next) {
   request(`${config.apiUrl}/albums/${albumId}/photos`, (error, response, photos) => {
     if (error) next(error);
 
-    if (response.statusCode == 200)
-      res.json({photos: JSON.parse(photos)})
+    if (response.statusCode == 200) {
+      photos = JSON.parse(photos);
+      res.json({ photos: photos, total: photos.length })
+    }
   });
 }
 

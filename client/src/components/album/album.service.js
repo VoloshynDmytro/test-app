@@ -12,6 +12,16 @@ class AlbumService {
     });
   }
 
+  getAlbum(userId, albumId) {
+    let albumMatchesParam = (album) => {
+      return album.id == albumId;
+    };
+
+    return this.load(userId).then((data) => {
+      return data.albums.find(albumMatchesParam)
+    });
+  }
+
 }
 
 export default AlbumService;

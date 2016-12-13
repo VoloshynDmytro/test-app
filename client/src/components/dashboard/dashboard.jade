@@ -1,3 +1,4 @@
 main
-  h1 Found in {{ $ctrl.name }}.jade
+  .chart-wrapper
+    highchart(id="chart" config="$ctrl.chartConfig")
 

@@ -3,11 +3,13 @@ class UsersController {
   constructor($state, $stateParams) {
     "ngInject";
     this.$state = $state;
-    if ( $stateParams.userId )
-      this.selectedUser = this.users[0];
+    _.extend(this, this.data);
   }
 
   $onInit() {
+    this.originalUsers = this.users;
+    if ( this.selectedUser )
+      this.users = this.users.filter(user => user.id == this.selectedUser.id);
     this.search = '';
     this.filter = {};
     this.columns = ['name', 'username', 'email', 'phone'];
@@ -31,9 +33,17 @@ class UsersController {
   }
 
   selectUser(selectedUser) {
-    this.users = this.users.filter(user => user.id == selectedUser.id);
-    this.selectedUser = selectedUser;
-    this.$state.go('user.albums', { userId: selectedUser.id });
+    if ( selectedUser != this.selectedUser) {
+      this.users = this.users.filter(user => user.id == selectedUser.id);
+      this.selectedUser = selectedUser;
+      this.$state.go('user.albums', { userId: selectedUser.id });
+    } else {
+      this.users = this.originalUsers;
+      this.selectedUser = null;
+    }
+  }
+
+  uiOnParamsChanged(newParams) {
   }
 
 }

@@ -7,7 +7,6 @@ import ngMessage from 'angular-messages';
 import ngNotifications from 'ng-notifications-bar';
 import ngDialog from 'ng-dialog';
 import ngPagination from 'angular-utils-pagination';
-import ngProgress from 'ngprogress-lite';
 
 //import configs
 import { configure } from './config/main.config';
@@ -22,7 +21,6 @@ let coreModule = angular.module('app.core', [
   ngPagination,
   ngDialog,
   'ngNotificationsBar',
-  'ngProgressLite',
   helpers
 ])
   .constant('domain', domainConfig)

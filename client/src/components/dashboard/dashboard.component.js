@@ -3,7 +3,9 @@ import controller from './dashboard.controller';
 import './dashboard.styl';
 
 const dashboardComponent = {
-  bindings: {},
+  bindings: {
+    data: '<'
+  },
   template: template(),
   controller
 };

@@ -4,7 +4,7 @@ import './album.styl';
 
 const albumsComponent = {
   bindings: {
-    albums: '<'
+    data: '<'
   },
   template: template(),
   controller

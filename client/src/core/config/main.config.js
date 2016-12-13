@@ -1,9 +1,7 @@
-
 export function configure(
   $logProvider,
   paginationTemplateProvider,
   ngDialogProvider,
-  ngProgressLiteProvider,
   notificationsConfigProvider) {
     "ngInject";
 
@@ -20,7 +18,6 @@ export function configure(
       closeByDocument: true,
       closeByEscape: true
   });
-  ngProgressLiteProvider.settings.speed = 500;
 
   notificationsConfigProvider.setAutoHide(true);
   notificationsConfigProvider.setHideDelay(2000);

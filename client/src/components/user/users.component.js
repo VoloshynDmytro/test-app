@@ -4,7 +4,7 @@ import './user.styl';
 
 const userListComponent = {
   bindings: {
-    users: '<'
+    data: '<'
   },
   template: template(),
   controller

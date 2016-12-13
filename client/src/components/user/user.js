@@ -14,7 +14,7 @@ const userModule = angular.module('user', [
         component: 'users',
         title: 'Users',
         resolve: {
-          users: loadUsers
+          data: loadUsers,
         },
         settings: {
           nav: 2,
@@ -29,15 +29,16 @@ const userModule = angular.module('user', [
 
 function loadUsers(UserService, $stateParams) {
   "ngInject";
-  if ( $stateParams.userId )
-    return UserService.getUser($stateParams.userId).then((user) => {
-      console.log(user);
-      return [user]
-    });
-  else
-    return UserService.load().then((data) => {
-      return data.users
-    });
+  let data = {};
+
+  return UserService.load().then((responseData) => {
+    data.users = responseData.users;
+    if ( $stateParams.userId )
+      data.selectedUser = data.users.find(user => user.id == $stateParams.userId)
+
+    return data;
+  });
+
 }
 
 export default userModule;

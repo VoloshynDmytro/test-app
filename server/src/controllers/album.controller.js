@@ -7,8 +7,11 @@ function list(req, res, next) {
   request(`${config.apiUrl}/users/${userId}/albums`, (error, response, albums) => {
     if (error) next(error);
 
-    if ( response.statusCode == 200 )
-      res.json({ albums: JSON.parse(albums) })
+    if ( response.statusCode == 200 ) {
+      albums = JSON.parse(albums);
+      res.json({ albums: albums, total: albums.length })
+    }
+
   });
 }
 
